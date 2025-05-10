@@ -1,0 +1,544 @@
+{
+    "url": "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/",
+    "title": "Understanding SIP Transactions, Dialogs, and Sessions - SIPERB WebRTC Softphone",
+    "meta_tags": {
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "description": "A SIP transaction is a core element of the SIP protocol, encompassing a single request made by a client and the corresponding responses from a server.",
+        "og:locale": "en_GB",
+        "og:type": "article",
+        "og:title": "Understanding SIP Transactions, Dialogs, and Sessions - SIPERB WebRTC Softphone",
+        "og:description": "A SIP transaction is a core element of the SIP protocol, encompassing a single request made by a client and the corresponding responses from a server.",
+        "og:url": "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/",
+        "og:site_name": "SIPERB WebRTC Softphone",
+        "article:publisher": "https://facebook.com/people/Siperb/61559214233611/",
+        "article:modified_time": "2024-11-25T19:30:07+00:00",
+        "og:image": "https://www.siperb.com/kb/wp-content/uploads/2024/08/Universal-Promo.png",
+        "og:image:width": "1200",
+        "og:image:height": "629",
+        "og:image:type": "image/png",
+        "twitter:card": "summary_large_image",
+        "twitter:site": "@SiperbDotCom",
+        "twitter:label1": "Estimated reading time",
+        "twitter:data1": "3 minutes",
+        "generator": "KnowAll v1.15.14",
+        "google-site-verification": "2-1N88yU111ek9Mz1v_T65boC3f1kGMVHdUoR1uSVvU",
+        "msapplication-TileImage": "https://www.siperb.com/kb/wp-content/uploads/2024/08/playstore-300x300.png",
+        "facebook-domain-verification": "vuwez1u6091jst0zc9gom7g13pw831"
+    },
+    "structure": [
+        {
+            "level": 1,
+            "text": "Understanding SIP Transactions, Dialogs, and Sessions",
+            "id": "",
+            "content": []
+        },
+        {
+            "level": 2,
+            "text": "SIP Transactions",
+            "id": "sip-transactions",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "A SIP transaction is a core element of the SIP protocol, encompassing a single request made by a client and the corresponding responses from a server. This mechanism is responsible for ensuring the delivery of a particular message and its associated responses between two SIP entities."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:A transaction includes the initial request (such as INVITE, BYE, or REGISTER) and all responses related to that request."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:A transaction starts with the request and concludes when the final response is received."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "State:Transactions progress through various states including calling, trying, proceeding, completed, and terminated."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "A SIP dialog represents a persistent, peer-to-peer relationship between two User Agents (UAs) maintained throughout a communication session. It is established through a series of transactions and is vital for managing stateful interactions."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:Dialogs are formed by SIP transactions and are identified through a combination of Call-ID, local tag, and remote tag."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:A dialog is initiated by the initial transaction (such as INVITE) and remains active until it is explicitly terminated by a BYE request or a timeout."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:Dialogs are crucial for maintaining the context of ongoing communication, facilitating the tracking of calls, and handling mid-call signaling, such as re-INVITEs or UPDATEs."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "A SIP session covers the entirety of the multimedia interaction between endpoints, which is established and regulated using SIP. This includes the transfer of actual data like voice, video, or messages, typically carried out using RTP (Real-Time Transport Protocol)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:Sessions are defined by the media exchanged between endpoints and are negotiated through SIP and SDP (Session Description Protocol)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:Sessions are initiated by SIP dialogs (beginning with an INVITE transaction) and persist until a BYE request concludes the session."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:The session encompasses the full media exchange, supporting real-time communications such as voice calls and video conferences."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Scope:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Handle discrete request-response exchanges.",
+                        "Dialogs:Manage the state and interaction between UAs across multiple transactions.",
+                        "Sessions:Cover the complete media exchange facilitated by dialogs."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Duration:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Short-term, ending with the final response.",
+                        "Dialogs:Continuously active from start to finish of the communication.",
+                        "Sessions:Extend as long as the media exchange is ongoing."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Guarantee the reliable delivery of SIP messages.",
+                        "Dialogs:Preserve the context and state of the ongoing communication.",
+                        "Sessions:Enable the actual media transfer between endpoints."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "When initiating a SIP call:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transaction:User Agent A sends an INVITE request to User Agent B, initiating a transaction.",
+                        "Dialog:If User Agent B replies with a 200 OK and User Agent A sends an ACK, a dialog is established, maintaining the context of the call.",
+                        "Session:The subsequent media exchange (voice or video) continues until a BYE request concludes the call, forming the session."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Grasping the differences between transactions, dialogs, and sessions is essential for effectively managing SIP-based communication systems, ensuring reliable signaling, state management, and media transmission."
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "text": "SIP Dialogs",
+            "id": "sip-dialogs",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "A SIP dialog represents a persistent, peer-to-peer relationship between two User Agents (UAs) maintained throughout a communication session. It is established through a series of transactions and is vital for managing stateful interactions."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:Dialogs are formed by SIP transactions and are identified through a combination of Call-ID, local tag, and remote tag."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:A dialog is initiated by the initial transaction (such as INVITE) and remains active until it is explicitly terminated by a BYE request or a timeout."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:Dialogs are crucial for maintaining the context of ongoing communication, facilitating the tracking of calls, and handling mid-call signaling, such as re-INVITEs or UPDATEs."
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "text": "SIP Sessions",
+            "id": "sip-sessions",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "A SIP session covers the entirety of the multimedia interaction between endpoints, which is established and regulated using SIP. This includes the transfer of actual data like voice, video, or messages, typically carried out using RTP (Real-Time Transport Protocol)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:Sessions are defined by the media exchanged between endpoints and are negotiated through SIP and SDP (Session Description Protocol)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:Sessions are initiated by SIP dialogs (beginning with an INVITE transaction) and persist until a BYE request concludes the session."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:The session encompasses the full media exchange, supporting real-time communications such as voice calls and video conferences."
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "text": "Key Differences",
+            "id": "key-differences",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "Scope:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Handle discrete request-response exchanges.",
+                        "Dialogs:Manage the state and interaction between UAs across multiple transactions.",
+                        "Sessions:Cover the complete media exchange facilitated by dialogs."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Duration:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Short-term, ending with the final response.",
+                        "Dialogs:Continuously active from start to finish of the communication.",
+                        "Sessions:Extend as long as the media exchange is ongoing."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Guarantee the reliable delivery of SIP messages.",
+                        "Dialogs:Preserve the context and state of the ongoing communication.",
+                        "Sessions:Enable the actual media transfer between endpoints."
+                    ]
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "text": "Practical Example",
+            "id": "practical-example",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "When initiating a SIP call:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transaction:User Agent A sends an INVITE request to User Agent B, initiating a transaction.",
+                        "Dialog:If User Agent B replies with a 200 OK and User Agent A sends an ACK, a dialog is established, maintaining the context of the call.",
+                        "Session:The subsequent media exchange (voice or video) continues until a BYE request concludes the call, forming the session."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Grasping the differences between transactions, dialogs, and sessions is essential for effectively managing SIP-based communication systems, ensuring reliable signaling, state management, and media transmission."
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "text": "Related Articles",
+            "id": "",
+            "content": [
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Viewing SIP Trace Logs",
+                        "Registration Modes",
+                        "WebRTC to SIP Proxy",
+                        "Softphone: What is and why would you use it?",
+                        "What is STUN?",
+                        "What is SDP (Session Description Protocol)?"
+                    ]
+                }
+            ]
+        },
+        {
+            "level": 3,
+            "text": "Contents",
+            "id": "",
+            "content": []
+        },
+        {
+            "level": 3,
+            "text": "Popular Articles",
+            "id": "",
+            "content": [
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Understanding SIP Transactions, Dialogs, and Sessions",
+                        "OpenSIPS WebRTC",
+                        "Asterisk WebRTC",
+                        "An Introduction to Connections",
+                        "Welcome to the SIPERB Beta Program"
+                    ]
+                }
+            ]
+        }
+    ],
+    "structured_data": [
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebPage",
+                    "@id": "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/",
+                    "url": "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/",
+                    "name": "Understanding SIP Transactions, Dialogs, and Sessions - SIPERB WebRTC Softphone",
+                    "isPartOf": {
+                        "@id": "https://www.siperb.com/kb/#website"
+                    },
+                    "datePublished": "2024-08-22T11:20:13+00:00",
+                    "dateModified": "2024-11-25T19:30:07+00:00",
+                    "description": "A SIP transaction is a core element of the SIP protocol, encompassing a single request made by a client and the corresponding responses from a server.",
+                    "breadcrumb": {
+                        "@id": "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/#breadcrumb"
+                    },
+                    "inLanguage": "en-GB",
+                    "potentialAction": [
+                        {
+                            "@type": "ReadAction",
+                            "target": [
+                                "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": "https://www.siperb.com/kb/article/understanding-sip-transactions-dialogs-and-sessions/#breadcrumb",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://www.siperb.com/kb/"
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": "Understanding SIP Transactions, Dialogs, and Sessions"
+                        }
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://www.siperb.com/kb/#website",
+                    "url": "https://www.siperb.com/kb/",
+                    "name": "SIPERB",
+                    "description": "A SIP|VOIP Softphone for Asterisk or FreeSWITCH",
+                    "publisher": {
+                        "@id": "https://www.siperb.com/kb/#organization"
+                    },
+                    "potentialAction": [
+                        {
+                            "@type": "SearchAction",
+                            "target": {
+                                "@type": "EntryPoint",
+                                "urlTemplate": "https://www.siperb.com/kb/?s={search_term_string}"
+                            },
+                            "query-input": {
+                                "@type": "PropertyValueSpecification",
+                                "valueRequired": true,
+                                "valueName": "search_term_string"
+                            }
+                        }
+                    ],
+                    "inLanguage": "en-GB"
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://www.siperb.com/kb/#organization",
+                    "name": "SIPERB",
+                    "url": "https://www.siperb.com/kb/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "inLanguage": "en-GB",
+                        "@id": "https://www.siperb.com/kb/#/schema/logo/image/",
+                        "url": "https://www.siperb.com/kb/wp-content/uploads/2024/08/cropped-playstore-1.png",
+                        "contentUrl": "https://www.siperb.com/kb/wp-content/uploads/2024/08/cropped-playstore-1.png",
+                        "width": 512,
+                        "height": 512,
+                        "caption": "SIPERB"
+                    },
+                    "image": {
+                        "@id": "https://www.siperb.com/kb/#/schema/logo/image/"
+                    },
+                    "sameAs": [
+                        "https://facebook.com/people/Siperb/61559214233611/",
+                        "https://x.com/SiperbDotCom",
+                        "https://linkedin.com/company/siperb/",
+                        "https://youtube.com/@Siperb"
+                    ]
+                }
+            ]
+        }
+    ],
+    "tables": [],
+    "main_content": [
+        {
+            "type": "container",
+            "content": [
+                {
+                    "type": "paragraph",
+                    "text": "A SIP transaction is a core element of the SIP protocol, encompassing a single request made by a client and the corresponding responses from a server. This mechanism is responsible for ensuring the delivery of a particular message and its associated responses between two SIP entities."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:A transaction includes the initial request (such as INVITE, BYE, or REGISTER) and all responses related to that request."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:A transaction starts with the request and concludes when the final response is received."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "State:Transactions progress through various states including calling, trying, proceeding, completed, and terminated."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "A SIP dialog represents a persistent, peer-to-peer relationship between two User Agents (UAs) maintained throughout a communication session. It is established through a series of transactions and is vital for managing stateful interactions."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:Dialogs are formed by SIP transactions and are identified through a combination of Call-ID, local tag, and remote tag."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:A dialog is initiated by the initial transaction (such as INVITE) and remains active until it is explicitly terminated by a BYE request or a timeout."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:Dialogs are crucial for maintaining the context of ongoing communication, facilitating the tracking of calls, and handling mid-call signaling, such as re-INVITEs or UPDATEs."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "A SIP session covers the entirety of the multimedia interaction between endpoints, which is established and regulated using SIP. This includes the transfer of actual data like voice, video, or messages, typically carried out using RTP (Real-Time Transport Protocol)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Components:Sessions are defined by the media exchanged between endpoints and are negotiated through SIP and SDP (Session Description Protocol)."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Lifecycle:Sessions are initiated by SIP dialogs (beginning with an INVITE transaction) and persist until a BYE request concludes the session."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:The session encompasses the full media exchange, supporting real-time communications such as voice calls and video conferences."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Scope:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Handle discrete request-response exchanges.",
+                        "Dialogs:Manage the state and interaction between UAs across multiple transactions.",
+                        "Sessions:Cover the complete media exchange facilitated by dialogs."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Duration:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Short-term, ending with the final response.",
+                        "Dialogs:Continuously active from start to finish of the communication.",
+                        "Sessions:Extend as long as the media exchange is ongoing."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Purpose:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transactions:Guarantee the reliable delivery of SIP messages.",
+                        "Dialogs:Preserve the context and state of the ongoing communication.",
+                        "Sessions:Enable the actual media transfer between endpoints."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "When initiating a SIP call:"
+                },
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Transaction:User Agent A sends an INVITE request to User Agent B, initiating a transaction.",
+                        "Dialog:If User Agent B replies with a 200 OK and User Agent A sends an ACK, a dialog is established, maintaining the context of the call.",
+                        "Session:The subsequent media exchange (voice or video) continues until a BYE request concludes the call, forming the session."
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Grasping the differences between transactions, dialogs, and sessions is essential for effectively managing SIP-based communication systems, ensuring reliable signaling, state management, and media transmission."
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "content": [
+                {
+                    "type": "link",
+                    "text": "SIP",
+                    "href": "https://www.siperb.com/kb/kb-tag/sip/"
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "content": [
+                {
+                    "type": "list",
+                    "list_type": "unordered",
+                    "items": [
+                        "Viewing SIP Trace Logs",
+                        "Registration Modes",
+                        "WebRTC to SIP Proxy",
+                        "Softphone: What is and why would you use it?",
+                        "What is STUN?",
+                        "What is SDP (Session Description Protocol)?"
+                    ]
+                }
+            ]
+        }
+    ]
+}
